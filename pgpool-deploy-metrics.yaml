@@ -19,12 +19,12 @@ spec:
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
-              name: mypostgres-postgres-secret
+              name: postgres-secret
               key: username
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mypostgres-postgres-secret
+              name: postgres-secret
               key: password
         - name: PGPOOL_PASSWORD_ENCRYPTION_METHOD
           value: "scram-sha-256"
@@ -56,12 +56,12 @@ spec:
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
-              name: mypostgres-postgres-secret
+              name: postgres-secret
               key: username
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mypostgres-postgres-secret
+              name: postgres-secret
               key: password
         - name: POSTGRES_DATABASE
           value: "postgres"
@@ -70,7 +70,7 @@ spec:
         - name: PGPOOL_SERVICE_PORT
           value: "9999"
         - name: SSLMODE
-          value: "require"
+          value: "disable"
       volumes:
       - name: pgpool-config
         configMap:
